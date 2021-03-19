@@ -1,0 +1,9 @@
+.board-game{
+  width: 80vw;
+  height: 80vh;
+  background: lightblue url("https://cdn.wallpapersafari.com/68/89/AImlo6.jpg") no-repeat center center / cover;
+  border-top: 10px solid #999;
+  border-bottom: 10px solid #111;
+  border-left: 10px solid #444;
+  border-right: 10px solid #333;
+}

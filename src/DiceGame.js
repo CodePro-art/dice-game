@@ -1,11 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
+import GameBoard from './Components/Board/Board';
 
-export default class DiceGame extends Component {
-  render() {
-    return (
-      <div className="dice-game">
-        
-      </div>
-    )
-  }
+import './App.css';
+// import ReactDice from 'react-dice-complete';
+// import 'react-dice-complete/dist/react-dice-complete.css';
+// import * as THREE from "three";
+
+function DiceGame() {
+  return (
+    <div className="dice-game">
+      <GameBoard/>
+    </div>
+  );
 }
+
+export default DiceGame;
