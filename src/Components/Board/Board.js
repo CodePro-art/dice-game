@@ -24,6 +24,10 @@ export default class GameBoard extends Component {
     ]
   }
 
+  componentDidMount(){
+    this.setState({})
+  }
+
   updateResult = (result) => {
     let temp = this.state.players;
     
@@ -55,23 +59,36 @@ export default class GameBoard extends Component {
     })
     this.setState({playerTurn: this.state.playerTurn ? 0 : 1 , players: temp})
   }
+
   winner = (index) => {
+    console.log(this.state.players);
     let temp = this.state.players;
     temp[index].wins++;
-    this.setState({names: index ? ["WINNER!","Player 2"] : ["Player 1","WINNER!"], players: temp})
+    this.setState({names: index ? ["WINNER!","Player 2"] : ["Player 1","WINNER!"], players: temp});
+    this.newGame();
   }
 
   render() {
     return (
       <div className="board-game">
+
         <GameActions 
           sendResult={this.updateResult} 
           roll={() => this.content.rollAll()}
           reset={this.newGame} 
           hold={this.holdCurrentScore}
         />
-        <ScoreBoard players={this.state.players} names={this.state.names}/>
-        <Dices send={this.updateResult} ref={instance => { this.content = instance; }}/>
+
+        <ScoreBoard 
+          players={this.state.players} 
+          names={this.state.names} 
+          colors={this.state.playerTurn ? ["black","white"] : ["white","black"]}
+        />
+
+        <Dices 
+          send={this.updateResult} 
+          ref={instance => { this.content = instance; }}
+        />
       </div>
     )
   }
