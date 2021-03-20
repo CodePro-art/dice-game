@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import ScoreBoard from './Components/ScoreBoard/ScoreBoard';
-import GameAction from './Components/Actions';
-import Dices from './Components/Dices';
+import ScoreBoard from './ScoreBoard/ScoreBoard';
+import GameActions from './GameActions/GameActions';
+import Dices from './Dices';
 
 import './Board.css'
 
@@ -25,9 +25,9 @@ export default class GameBoard extends Component {
   render() {
     return (
       <div className="board-game">
+        <GameActions/>
         <ScoreBoard players={this.state.players}/>
         <Dices dices={this.state.dices}/>
-        <GameAction/>
       </div>
     )
   }

@@ -1,30 +1,41 @@
-.board-game{
-  width: 90vw;
-  height: 90vh;
-  position: relative;
-  border-top: 2px solid rgba(255, 255, 255, 0.15);
-  border-right: 2px solid rgba(255, 255, 255, 0.3);
-  border-left: 2px solid rgba(255, 255, 255, 0.35);
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+.game-actions-container{
+  position: absolute;
+  width: 30vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.action-container{
+  display: flex;
+  justify-content: center;
+  margin: 100px 0px;
+  padding: 30px;
+}
+
+.glass-btn {
+  height: 75px;
+  width: 75px;
+  border-top: 3px solid rgba(255, 255, 255, 0.4);
+  border-right: 3px solid rgba(255, 255, 255, 0.5);
+  border-left: 3px solid rgba(255, 255, 255, 0.6);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
   background: linear-gradient(130deg, 
   rgba(255, 255, 255,0.05) 0%,
   rgba(255, 255, 255,0.30) 10%,
-  rgba(255, 255, 255,0.45) 15%,
   rgba(255, 255, 255,0.10) 20%,
   rgba(255, 255, 255,0.15) 25%,
-  rgba(255, 255, 255,0.35) 30%,
   rgba(255, 255, 255,0.00) 35%,
   rgba(255, 255, 255,0.05) 40%,
   rgba(255, 255, 255,0.25) 45%,
   rgba(255, 255, 255,0.15) 50%,
   rgba(255, 255, 255,0.05) 55%,
   rgba(255, 255, 255,0.15) 60%,
-  rgba(255, 255, 255,0.35) 65%,
   rgba(255, 255, 255,0.15) 70%,
   rgba(255, 255, 255,0.20) 75%,
-  rgba(255, 255, 255,0.35) 80%,
   rgba(255, 255, 255,0.00) 85%,
   rgba(255, 255, 255,0.15) 90%,
   rgba(255, 255, 255,0.20) 95%,
   rgba(255, 255, 255,0.10) 100%);
+  cursor: pointer;
 }
