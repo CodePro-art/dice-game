@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class Action extends Component {
 
   callback=()=>{
-    this.props.sendRsult(this.props.action)
+    this.props.sendResult(this.props.action)
   }
   
   render() {
@@ -17,10 +17,7 @@ export default class Action extends Component {
               </button>
             </div>
             <div className="flip-card-back">
-              <i 
-                className={this.props.icon + " fa-2x"} 
-                onClick={this.callback} 
-              ></i>
+              <i className={this.props.icon + " fa-2x"} onClick={this.callback}/>
             </div>
           </div>
         </div>

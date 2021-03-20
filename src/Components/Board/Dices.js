@@ -9,25 +9,22 @@ export default class Dices extends Component {
       <div className="dices-container">
         <ReactDice
           numDice={2}
-          defaultRoll={1}
+          defaultRoll={6}
           faceColor={"rgba(225,225,225,1)"}
           outline={true}
           outlineColor={"#666"}
           dotColor={"#333"}
           rollTime={1}
           disableIndividual={true}
-          rollDone={this.rollDoneCallback}
+          rollDone={(num) => {this.props.send(num)}}
           ref={dice => this.reactDice = dice}
         />
       </div>
     )
   }
+
   rollAll() {
-    this.reactDice.rollAll()
+    this.reactDice.rollAll();
   }
 
-  rollDoneCallback(num) {
-    this.props.sendResult(num)
-    console.log(`You rolled a ${num}`)
-  }
 }

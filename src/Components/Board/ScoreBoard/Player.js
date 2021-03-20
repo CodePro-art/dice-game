@@ -6,7 +6,12 @@ export default class Player extends Component {
     currentScore: this.props.score.currentScore,
     globalScore: this.props.score.globalScore
   }
-  
+
+  componentWillReceiveProps(){
+    this.setState({currentScore: this.props.score.currentScore,
+    globalScore: this.props.score.globalScore})
+  }
+
   render() {
     return (
       <div className="player-container">

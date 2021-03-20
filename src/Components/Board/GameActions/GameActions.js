@@ -9,7 +9,6 @@ export default class GameActions extends Component {
   }
 
   activateAction = (action) => {
-    console.log(action);
     switch(action) {
       case "NEW GAME":
         this.newGame();
@@ -18,10 +17,18 @@ export default class GameActions extends Component {
         this.props.roll()
         break;
       case "HOLD":
-        this.holdResult();
+        this.hold()
         break;
       default:
     }
+  }
+
+  hold = () => {
+    this.props.hold();
+  }
+
+  newGame = () => {
+    this.props.reset();
   }
 
   renderActions = () => this.state.actions.map((action,i) => {
