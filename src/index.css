@@ -1,9 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');body {
   margin: 0;
   font-family: 'Poiret One', cursive;
-  font-size: 2rem;
-  -webkit-text-stroke: 1px rgb(77, 77, 77);
-  -webkit-text-fill-color: white;
   /* -webkit-text-stroke-width: 3px;
   -webkit-text-stroke-color: #666; */
   -webkit-font-smoothing: antialiased;

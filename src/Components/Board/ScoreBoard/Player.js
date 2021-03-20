@@ -8,7 +8,6 @@ export default class Player extends Component {
   }
   
   render() {
-    console.log(this.props.score);
     return (
       <div className="player-container">
         <h1>{this.state.name}</h1>
