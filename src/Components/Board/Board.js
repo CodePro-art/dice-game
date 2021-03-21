@@ -7,6 +7,7 @@ import Dices from './Dices';
 
 import './Board.css'
 
+
 export default class GameBoard extends Component {
   state = {
     pointsToWin: 100,
@@ -27,7 +28,12 @@ export default class GameBoard extends Component {
   }
 
   componentDidMount(){
-    this.setState({})
+    this.setState({});
+    this.newGame();
+  }
+
+  componentDidUpdate(){
+    this.saveData();
   }
 
   updateResult = (result) => {
@@ -55,23 +61,65 @@ export default class GameBoard extends Component {
 
   newGame = () => {
     let temp = this.state.players;
+    let cap;
     temp.forEach(player => {
       player.currentScore = 0;
       player.globalScore = 0;
     })
     this.setState({playerTurn: this.state.playerTurn ? 0 : 1 , players: temp})
+
+    do{
+      cap = prompt("Please enter the goal to win (must be a positive integer).",100)
+    }while(!this.isNormalInteger(cap))
+
+    this.setState({pointsToWin: cap})
   }
 
+  isNormalInteger = (str) => {
+    if(str === null)
+      return false;
+    str = str.trim();
+    if (!str) {
+        return false;
+    }
+    str = str.replace(/^0+/, "") || "0";
+    var n = Math.floor(Number(str));
+    return n !== Infinity && String(n) === str && n >= 0;
+}
+
   winner = (index) => {
-    console.log(this.state.players);
     let temp = this.state.players;
     temp[index].wins++;
-    this.setState({names: index ? ["WINNER!","Player 2"] : ["Player 1","WINNER!"], });
     this.setState({players: temp});
-    // this.newGame();
+
+    confirmAlert({
+      title: `Player ${index+1} won this round!`,
+      message: 'Please press "OK" to save and continue to another round or "Cancel to stop playing.',
+      buttons: [
+        {
+          label: 'OK',
+          onClick: () => {this.newGame()}
+        },
+        {
+          label: 'Cancel',
+          onClick: () => {}
+        }
+      ]
+    })
+  }
+
+  saveData = () => {
+    localStorage.setItem('storage', JSON.stringify(this.state));
+  }
+
+  loadData = () => {
+    let storage = localStorage.getItem('storage');
+    return JSON.parse(storage);
   }
 
   render() {
+    
+
     return (
       <div className="board-game">
 

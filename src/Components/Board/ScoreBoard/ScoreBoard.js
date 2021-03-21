@@ -13,8 +13,8 @@ export default class ScoreBoard extends Component {
   render() {
     return (
       <div className="score-board-container">
-        <Player name={this.state.names[0].toUpperCase()} score={this.state.players[0]} color={this.props.colors[0]}/>
-        <Player name={this.state.names[1].toUpperCase()} score={this.state.players[1]} color={this.props.colors[1]}/>
+        <Player name={this.state.names[0].toUpperCase()} score={this.state.players[0]} color={this.props.colors[0]} wins={this.props.players[0].wins}/>
+        <Player name={this.state.names[1].toUpperCase()} score={this.state.players[1]} color={this.props.colors[1]} wins={this.props.players[1].wins}/>
       </div>
     )
   }

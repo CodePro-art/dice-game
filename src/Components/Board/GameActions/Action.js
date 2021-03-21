@@ -1,18 +1,26 @@
 import React, { Component } from 'react'
 
+let enable = true;
 export default class Action extends Component {
 
-  callback=()=>{
-    this.props.sendResult(this.props.action)
-  }
   
+  callback=()=>{
+    if (enable)
+      this.props.sendResult(this.props.action)
+    
+    enable = false;
+    setTimeout(()=>{
+      enable = true
+    },1000)
+  }
+
   render() {
     return (
       <div className="action-container">
         <div className="flip-card">
           <div className="flip-card-inner">
             <div className="flip-card-front">
-              <button className="glass-btn">
+              <button className="glass-btn" >
                 {this.props.action}
               </button>
             </div>

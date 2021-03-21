@@ -5,7 +5,6 @@ export default class Player extends Component {
     name: this.props.name,
     currentScore: this.props.score.currentScore,
     globalScore: this.props.score.globalScore,
-    fontSize:  this.props.fontSize
   }
 
   componentWillReceiveProps(){
@@ -17,7 +16,11 @@ export default class Player extends Component {
   render() {
     return (
       <div className="player-container">
-        <h1 className="player-name" style={{color: this.props.color}}>{this.state.name}</h1>
+        <div className="player-details">
+          <h1 className="player-name" style={{color: this.props.color}}>{this.state.name}</h1>
+          <h3 className="total-wins">{this.props.wins}</h3>
+        </div>
+        
         <button className="global-score glass blue-b">{this.state.globalScore}</button>
         <button className="current-score glass red-b">{this.state.currentScore}</button>
       </div>

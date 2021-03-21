@@ -6,6 +6,7 @@ export default class GameActions extends Component {
   state={
     actions: ["new game","roll","hold"],
     icons: ["fas fa-gamepad","fas fa-dice","fas fa-history"],
+    disable: false 
   }
 
   activateAction = (action) => {
@@ -14,7 +15,6 @@ export default class GameActions extends Component {
         this.newGame();
         break;
       case "ROLL":
-        this.disableButtons();
         this.props.roll();
         break;
       case "HOLD":
@@ -24,9 +24,6 @@ export default class GameActions extends Component {
     }
   }
 
-  disableButtons = () => {
-
-  }
 
   hold = () => {
     this.props.hold();
@@ -43,6 +40,7 @@ export default class GameActions extends Component {
         action={action.toUpperCase()}
         icon={this.state.icons[i]}
         sendResult={this.activateAction}
+        state={this.state.disable}
       />
     )
   })
