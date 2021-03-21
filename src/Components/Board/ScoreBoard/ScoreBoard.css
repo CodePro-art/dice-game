@@ -125,7 +125,9 @@
   outline: 0;
 }
 
-button:hover.goal {
+
+
+.goal:hover {
     text-shadow: 0px 0px 2px rgba(170, 200, 255, 0.99), 0px 0px 4px rgba(140, 170, 255, 0.99);
 
     border-color: rgba(0, 0, 0, 0.6);
@@ -148,7 +150,7 @@ button:hover.goal {
     background: radial-gradient(ellipse at center,  rgba(120, 200, 255,1) 0%,rgba(120, 200, 255,0) 100%); /* W3C */
 }
 
-button:active.goal {    
+.goal:active {    
     text-shadow: 0px 0px 2px rgba(230, 240, 255, 0.99), 0px 0px 4px rgba(200, 210, 255, 0.99);
     border-color: rgba(120, 200, 255, 0.6) !important;
    
@@ -157,8 +159,4 @@ button:active.goal {
     0 10px 0 0 rgba(120, 200, 255, 0.5) inset,
     0 0 5px 2px rgba(120, 200, 255, 0.75),
     0 0 10px 2px rgba(120, 200, 255, 0.75) inset !important;
-}
-
-.position-input{
-  position: relative;
 }
