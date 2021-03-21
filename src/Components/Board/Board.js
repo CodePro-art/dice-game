@@ -1,18 +1,24 @@
+// =============================================================================== //
+// ============================IMPORT COMPONENTS================================== //
+// =============================================================================== //
+
 import React, { Component } from 'react';
 import ScoreBoard from './ScoreBoard/ScoreBoard';
 import GameActions from './GameActions/GameActions';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import Goal from './Goal';
 import Dices from './Dices';
+import './Board.css';// Import css
 
-import './Board.css'
-
-
+// Class declaration:
 export default class GameBoard extends Component {
+  // Constructor
   state = {
     pointsToWin: 100,
     playerTurn: Math.round(Math.random()),
     names: ["player 1","player 2"],
+    busy: false,
     players: [
       {
         wins: 0,
@@ -27,11 +33,13 @@ export default class GameBoard extends Component {
     ]
   }
 
+  // upon first mount
   componentDidMount(){
     this.setState({});
     this.newGame();
   }
 
+  // upon update
   componentDidUpdate(){
     this.saveData();
   }
@@ -61,31 +69,14 @@ export default class GameBoard extends Component {
 
   newGame = () => {
     let temp = this.state.players;
-    let cap;
     temp.forEach(player => {
       player.currentScore = 0;
       player.globalScore = 0;
     })
     this.setState({playerTurn: this.state.playerTurn ? 0 : 1 , players: temp})
-
-    do{
-      cap = prompt("Please enter the goal to win (must be a positive integer).",100)
-    }while(!this.isNormalInteger(cap))
-
-    this.setState({pointsToWin: cap})
   }
 
-  isNormalInteger = (str) => {
-    if(str === null)
-      return false;
-    str = str.trim();
-    if (!str) {
-        return false;
-    }
-    str = str.replace(/^0+/, "") || "0";
-    var n = Math.floor(Number(str));
-    return n !== Infinity && String(n) === str && n >= 0;
-}
+  
 
   winner = (index) => {
     let temp = this.state.players;
@@ -117,9 +108,13 @@ export default class GameBoard extends Component {
     return JSON.parse(storage);
   }
 
-  render() {
-    
+  setGoal = (goal) => {
+    this.setState({pointsToWin: goal})
+  }
 
+ 
+
+  render() {
     return (
       <div className="board-game">
 
@@ -140,6 +135,8 @@ export default class GameBoard extends Component {
           send={this.updateResult} 
           ref={instance => { this.content = instance; }}
         />
+
+        <Goal goal={this.state.pointsToWin}/>
       </div>
     )
   }
