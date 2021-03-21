@@ -17,7 +17,7 @@ export default class Player extends Component {
   render() {
     return (
       <div className="player-container">
-        <h1 style={{color: this.props.color}}>{this.state.name}</h1>
+        <h1 className="player-name" style={{color: this.props.color}}>{this.state.name}</h1>
         <button className="global-score glass blue-b">{this.state.globalScore}</button>
         <button className="current-score glass red-b">{this.state.currentScore}</button>
       </div>

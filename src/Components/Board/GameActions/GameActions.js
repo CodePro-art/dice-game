@@ -14,13 +14,18 @@ export default class GameActions extends Component {
         this.newGame();
         break;
       case "ROLL":
-        this.props.roll()
+        this.disableButtons();
+        this.props.roll();
         break;
       case "HOLD":
-        this.hold()
+        this.hold();
         break;
       default:
     }
+  }
+
+  disableButtons = () => {
+
   }
 
   hold = () => {

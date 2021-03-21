@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ScoreBoard from './ScoreBoard/ScoreBoard';
 import GameActions from './GameActions/GameActions';
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import Dices from './Dices';
 
 import './Board.css'
@@ -64,8 +66,9 @@ export default class GameBoard extends Component {
     console.log(this.state.players);
     let temp = this.state.players;
     temp[index].wins++;
-    this.setState({names: index ? ["WINNER!","Player 2"] : ["Player 1","WINNER!"], players: temp});
-    this.newGame();
+    this.setState({names: index ? ["WINNER!","Player 2"] : ["Player 1","WINNER!"], });
+    this.setState({players: temp});
+    // this.newGame();
   }
 
   render() {
