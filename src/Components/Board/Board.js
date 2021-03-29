@@ -76,8 +76,6 @@ export default class GameBoard extends Component {
     this.setState({playerTurn: this.state.playerTurn ? 0 : 1 , players: temp})
   }
 
-  
-
   winner = (index) => {
     let temp = this.state.players;
     temp[index].wins++;
@@ -111,8 +109,6 @@ export default class GameBoard extends Component {
   setGoal = (goal) => {
     this.setState({pointsToWin: goal})
   }
-
- 
 
   render() {
     return (
